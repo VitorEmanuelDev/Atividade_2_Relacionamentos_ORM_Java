@@ -1,0 +1,23 @@
+package com.mapeamentoOneToMany;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MapeamentoOneToManyApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(MapeamentoOneToManyApplication.class, args);
+	}
+
+	@Autowired
+	private DepartamentoRepository departamentoRepository;
+	private 
+	@Override
+	public void run(String... args) throws Exception {
+		
+		
+	}
+
+}

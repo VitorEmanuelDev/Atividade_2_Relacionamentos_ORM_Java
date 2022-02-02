@@ -1,0 +1,12 @@
+package Entity;
+
+import java.util.ArrayList;
+
+public class Departamento {
+	
+	private long id;
+	private String nome;
+	
+	List <Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+}

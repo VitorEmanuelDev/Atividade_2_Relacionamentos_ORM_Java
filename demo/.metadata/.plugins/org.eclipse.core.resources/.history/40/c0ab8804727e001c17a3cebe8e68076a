@@ -1,0 +1,13 @@
+package com.mapeamentoOneToMany;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class MapeamentoOneToManyApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(MapeamentoOneToManyApplication.class, args);
+	}
+
+}

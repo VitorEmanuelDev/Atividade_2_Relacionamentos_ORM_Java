@@ -1,0 +1,5 @@
+package com.mapeamentoOneToMany.Departamento;
+
+public interface DepartamentoRepository {
+
+}

@@ -1,0 +1,39 @@
+package com.mapeamentoManyToOne;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.mapeamentoManyToOne.Departamento.Cliente;
+import com.mapeamentoManyToOne.Departamento.DepartamentoRepository;
+import com.mapeamentoManyToOne.Funcionario.Funcionario;
+
+@SpringBootApplication
+public class MapeamentoOneToManyApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(MapeamentoOneToManyApplication.class, args);
+	}
+
+	@Autowired
+	private DepartamentoRepository departamentoRepository;
+	 
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Cliente dpFinanceiro = new Cliente("financeiro");
+		
+		Funcionario funcionario1 = new Funcionario("Paulo Gustavo");
+		Funcionario funcionario2 = new Funcionario("Thiago Ventura");
+		Funcionario funcionario3 = new Funcionario("Nando Viana");
+		
+		dpFinanceiro.getFuncionarios().add(funcionario1);
+		dpFinanceiro.getFuncionarios().add(funcionario2);
+		dpFinanceiro.getFuncionarios().add(funcionario3);
+		
+		this.departamentoRepository.save(dpFinanceiro);
+		
+	}
+
+}

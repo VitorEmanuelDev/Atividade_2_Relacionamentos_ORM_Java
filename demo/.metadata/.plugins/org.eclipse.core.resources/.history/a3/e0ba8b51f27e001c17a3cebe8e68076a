@@ -1,0 +1,44 @@
+package com.mapeamentoManyToOne.Pedidos;
+
+
+import javax.persistence.*;
+
+import com.mapeamentoManyToOne.Cliente.Cliente;
+
+@Entity
+@Table(name = "pedidos")
+public class Pedidos {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String nome;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "clienteId", referencedColumnName = "id")
+	private Cliente cliente;
+		
+	public Pedidos() {}
+	
+	public Pedidos(String nome) {
+		this.nome = nome;
+	}
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+}

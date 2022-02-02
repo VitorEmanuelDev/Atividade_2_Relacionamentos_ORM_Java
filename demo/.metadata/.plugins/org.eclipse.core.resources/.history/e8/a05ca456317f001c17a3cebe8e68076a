@@ -1,0 +1,57 @@
+package com.mapeamentoManyToMany.Autores;
+
+import java.util.*;
+import javax.persistence.*;
+
+import com.mapeamentoManyToMany.Livros.Livros;
+
+
+@Entity
+@Table(name = "autores")
+public class Autores {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@Column(name = "nome_autores")
+	private String nome;
+	
+	public Autores() {}
+	
+	public Autores(String nome) {
+		this.nome = nome;
+	}
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "autores", 
+		joinColumns = {@joinColumn(name = "")}
+			)
+	Set <Livros> livros = new HashSet<Livros>();
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Livros> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Livros> funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
+	
+	
+}

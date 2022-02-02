@@ -1,0 +1,39 @@
+package com.mapeamentoManyToMany;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.mapeamentoManyToMany.Autores.Autores;
+import com.mapeamentoManyToMany.Autores.AutoresRepository;
+import com.mapeamentoManyToMany.Livros.Livros;
+
+@SpringBootApplication
+public class MapeamentoOneToManyApplication implements CommandLineRunner{
+
+	public static void main(String[] args) {
+		SpringApplication.run(MapeamentoOneToManyApplication.class, args);
+	}
+
+	@Autowired
+	private AutoresRepository autoresRepository;
+	 
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Autores autores = new Autores("financeiro");
+		
+		Livros funcionario1 = new Livros("Paulo Gustavo");
+		Livros funcionario2 = new Livros("Thiago Ventura");
+		Livros funcionario3 = new Livros("Nando Viana");
+		
+		autores.getFuncionarios().add(funcionario1);
+		autores.getFuncionarios().add(funcionario2);
+		autores.getFuncionarios().add(funcionario3);
+		
+		this.autoresRepository.save(autores);
+		
+	}
+
+}
